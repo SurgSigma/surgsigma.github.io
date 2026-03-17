@@ -554,8 +554,8 @@ code {
   transform: translateY(-10px);
   transition: var(--transition);
   /* Show all work items without internal scroll (4 works visible at once) */
-  max-height: none;
-  overflow-y: visible;
+  max-height: 70vh;
+  overflow-y: auto;
 }
 
 .more-works-dropdown.show {
