@@ -74,11 +74,11 @@
 
 
   <!-- TODO: Replace with your paper title and authors -->
-  <title>PAPER_TITLE - AUTHOR_NAMES | Academic Research</title>
+  <title>Surg&Sigma; Project Page</title>
   
   <!-- Favicon and App Icons -->
-  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
-  <link rel="apple-touch-icon" href="static/images/favicon.ico">
+  <link rel="icon" type="image/x-icon" href="static/images/icon.png">
+  <link rel="apple-touch-icon" href="static/images/icon.png">
   
   <!-- Critical CSS - Load synchronously -->
   <link rel="stylesheet" href="static/css/bulma.min.css">
@@ -188,45 +188,52 @@
 
   <!-- More Works Dropdown -->
   <div class="more-works-container">
-    <button class="more-works-btn" onclick="toggleMoreWorks()" title="View More Works from Our Lab">
+    <button class="more-works-btn" onclick="toggleMoreWorks()" title="View Models Trained on Surg&Sigma;-DB">
       <i class="fas fa-flask"></i>
       More Works
       <i class="fas fa-chevron-down dropdown-arrow"></i>
     </button>
     <div class="more-works-dropdown" id="moreWorksDropdown">
       <div class="dropdown-header">
-        <h4>More Works from Our Lab</h4>
+        <h4>Models Trained on Surg&Sigma;-DB</h4>
         <button class="close-btn" onclick="toggleMoreWorks()">
           <i class="fas fa-times"></i>
         </button>
       </div>
       <div class="works-list">
-        <!-- TODO: Replace with your lab's related works -->
-        <a href="https://arxiv.org/abs/PAPER_ID_1" class="work-item" target="_blank">
+        <!-- Related works -->
+        <a href="https://XuMengyaAmy.github.io/BasicSurgicalActions/" class="work-item" target="_blank">
           <div class="work-info">
-            <!-- TODO: Replace with actual paper title -->
-            <h5>Paper Title 1</h5>
-            <!-- TODO: Replace with brief description -->
-            <p>Brief description of the work and its main contribution.</p>
-            <!-- TODO: Replace with venue and year -->
-            <span class="work-venue">Conference/Journal 2024</span>
+            <h5>BSA</h5>
+            <p>A Cross-Specialty Foundation Model for Basic Surgical Action Recognition</p>
+            <span class="work-venue">arXiv 2603.12787</span>
           </div>
           <i class="fas fa-external-link-alt"></i>
         </a>
-        <!-- TODO: Add more related works or remove extra items -->
-        <a href="https://arxiv.org/abs/PAPER_ID_2" class="work-item" target="_blank">
+
+        <a href="https://jinlab-imvr.github.io/SurgVLM/" class="work-item" target="_blank">
           <div class="work-info">
-            <h5>Paper Title 2</h5>
-            <p>Brief description of the work and its main contribution.</p>
-            <span class="work-venue">Conference/Journal 2023</span>
+            <h5>SurgVLM</h5>
+            <p>A Multimodal Foundation Model for Surgical Intelligence</p>
+            <span class="work-venue">arXiv 2506.02555</span>
           </div>
           <i class="fas fa-external-link-alt"></i>
         </a>
-        <a href="https://arxiv.org/abs/PAPER_ID_3" class="work-item" target="_blank">
+
+        <a href="https://jianjiang1995.github.io/Surg-R1/" class="work-item" target="_blank">
           <div class="work-info">
-            <h5>Paper Title 3</h5>
-            <p>Brief description of the work and its main contribution.</p>
-            <span class="work-venue">Conference/Journal 2023</span>
+            <h5>Surg-R1</h5>
+            <p>A Reasoning-Enhanced Model for Surgical Scene Understanding</p>
+            <span class="work-venue">arXiv 2603.12430</span>
+          </div>
+          <i class="fas fa-external-link-alt"></i>
+        </a>
+
+        <a href="https://github.com/NVIDIA-Medtech/Cosmos-H-Surgical" class="work-item" target="_blank">
+          <div class="work-info">
+            <h5>Cosmos-H-Surgical</h5>
+            <p>A Surgical World Model for Scalable Robot Policy Learning</p>
+            <span class="work-venue">arXiv 2512.23162</span>
           </div>
           <i class="fas fa-external-link-alt"></i>
         </a>
@@ -241,30 +248,90 @@
         <div class="columns is-centered">
           <div class="column has-text-centered">
             <!-- TODO: Replace with your paper title -->
-            <h1 class="title is-1 publication-title">Academic Project Page</h1>
+            <h1 class="title is-1 publication-title">Surg&Sigma;: A Spectrum of Large-Scale Multimodal Data and Foundation Models for Surgical Intelligence</h1>
             <div class="is-size-5 publication-authors">
-              <!-- TODO: Replace with your paper authors and their personal links -->
-              <span class="author-block">
-                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">First Author</a><sup>*</sup>,</span>
-                <span class="author-block">
-                  <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Second Author</a><sup>*</sup>,</span>
-                  <span class="author-block">
-                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Third Author</a>
-                  </span>
-                  </div>
+              <!-- Authors (TODO: replace href with actual personal links) -->
+              <span class="author-block author-nus">
+                <a href="https://scholar.google.com/citations?hl&user=fzSfOdEAAAAJ" target="_blank">Zhitao Zeng</a><sup>*</sup>
+              </span>
+              <span class="author-block author-cuhk">
+                <a href="https://xumengyaamy.github.io/" target="_blank">Mengya Xu</a><sup>*</sup>
+              </span>
+              <span class="author-block author-sjtu">
+                <a href="https://jianjiang1995.github.io/" target="_blank">Jian Jiang</a><sup>*</sup>
+              </span>
+              <span class="author-block author-nvidia">
+                <a href="https://scholar.google.com/citations?user=_IAp-bYAAAAJ" target="_blank">Pengfei Guo</a><sup>*</sup>
+              </span>
+              <span class="author-block author-nus">
+                <a href="https://scholar.google.com/citations?user=SdJX4nAAAAAJ" target="_blank">Yunqiu Xu</a>
+              </span>
+              <span class="author-block author-nus">
+                <a href="https://scholar.google.com/citations?user=EOQ72CYAAAAJ" target="_blank">Zhu Zhuo</a>
+              </span><br>
 
-                  <div class="is-size-5 publication-authors">
-                    <!-- TODO: Replace with your institution and conference/journal info -->
-                    <span class="author-block">Institution Name<br>Conference name and year</span>
-                    <!-- TODO: Remove this line if no equal contribution -->
-                    <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
-                  </div>
+              <span class="author-block author-nus">
+                <a href="https://scholar.google.com/citations?user=Gk0NHA0AAAAJ" target="_blank">Chang Han Low</a>
+              </span>
+              <span class="author-block author-nvidia">
+                <a href="https://scholar.google.com/citations?user=btkEZXIAAAAJ" target="_blank">Yufan He</a>
+              </span>
+              <span class="author-block author-nvidia">
+                <a href="https://scholar.google.com/citations?user=PHvliUgAAAAJ" target="_blank">Dong Yang</a>
+              </span>
+              <span class="author-block author-sjtu">
+                <a href="https://banyutong.github.io/sirius_lab_website/people.html" target="_blank">Chenxi Lin</a>
+              </span>
+              <span class="author-block author-sjtu">
+                <a href="https://banyutong.github.io/sirius_lab_website/people.html" target="_blank">Yiming Gu</a>
+              </span>
+              <span class="author-block author-cuhk">
+                <a href="https://wrld.github.io/" target="_blank">Jiaxin Guo</a>
+              </span><br>
+
+              <span class="author-block author-sjtu">
+                <a href="https://banyutong.github.io/sirius_lab_website/people.html" target="_blank">Yutong Ban</a><sup>&dagger;</sup>
+              </span>
+              <span class="author-block author-nvidia">
+                <a href="https://scholar.google.com/citations?user=r_VHYHAAAAAJ" target="_blank">Daguang Xu</a><sup>&dagger;</sup>
+              </span>
+              <span class="author-block author-cuhk">
+                <a href="https://www.cse.cuhk.edu.hk/~qdou/" target="_blank">Qi Dou</a><sup>&dagger;</sup>
+              </span>
+              <span class="author-block author-nus">
+                <a href="https://yuemingjin.github.io/" target="_blank">Yueming Jin</a><sup>&dagger;</sup>
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <!-- Affiliations -->
+              <span class="author-block">
+                <span class="affiliation-item author-nus">
+                  <b style="font-weight:normal">&#x25B6;</b> <strong>NUS</strong>
+                </span>
+                <span class="affiliation-item author-cuhk">
+                  <b style="font-weight:normal">&#x25B6;</b> <strong>CUHK</strong>
+                </span>
+                <span class="affiliation-item author-sjtu">
+                  <b style="font-weight:normal">&#x25B6;</b> <strong>SJTU</strong>
+                </span>
+                <span class="affiliation-item author-nvidia">
+                  <b style="font-weight:normal">&#x25B6;</b> <strong>NVIDIA</strong>
+                </span>
+              </span>
+              <span class="eql-cntrb">
+                <small>
+                  <br><sup>*</sup>These authors contributed equally. &nbsp;&nbsp;&nbsp;
+                  <sup>&dagger;</sup>Corresponding authors.
+                </small>
+              </span>
+            </div>
 
                   <div class="column has-text-centered">
                     <div class="publication-links">
-                         <!-- TODO: Update with your arXiv paper ID -->
+                         <!-- TODO: paper PDF -->
                       <span class="link-block">
-                        <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
+                        <a href="static/pdfs/SurgΣ.pdf" target="_blank"
                         class="external-link button is-normal is-rounded is-dark">
                         <span class="icon">
                           <i class="fas fa-file-pdf"></i>
@@ -273,25 +340,25 @@
                       </a>
                     </span>
 
-                    <!-- TODO: Add your supplementary material PDF or remove this section -->
+                    <!-- TODO: Datset -->
                     <span class="link-block">
-                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"
+                      <a href="https://huggingface.co/datasets" target="_blank"
                       class="external-link button is-normal is-rounded is-dark">
                       <span class="icon">
-                        <i class="fas fa-file-pdf"></i>
+                        <i class="fa fa-database"></i>
                       </span>
-                      <span>Supplementary</span>
+                      <span>Dataset (coming soon)</span>
                     </a>
                   </span>
 
                   <!-- TODO: Replace with your GitHub repository URL -->
                   <span class="link-block">
-                    <a href="https://github.com/YOUR REPO HERE" target="_blank"
+                    <a href="https://github.com" target="_blank"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
                     </span>
-                    <span>Code</span>
+                    <span>Code (coming soon)</span>
                   </a>
                 </span>
 
@@ -302,7 +369,7 @@
                   <span class="icon">
                     <i class="ai ai-arxiv"></i>
                   </span>
-                  <span>arXiv</span>
+                  <span>arXiv (coming soon)</span>
                 </a>
               </span>
             </div>
@@ -314,23 +381,18 @@
 </section>
 
 
-<!-- Teaser video-->
+<!-- Teaser image-->
 <section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <!-- TODO: Replace with your teaser video -->
-      <video poster="" id="tree" autoplay controls muted loop height="100%" preload="metadata">
-        <!-- TODO: Add your video file path here -->
-        <source src="static/videos/banner_video.mp4" type="video/mp4">
-      </video>
-      <!-- TODO: Replace with your video description -->
+  <div class="container">
+    <div class="hero-body has-text-centered" style="padding-top:1rem; padding-bottom:1rem;">
+      <img src="static/images/teaser.png" alt="SurgSigma teaser" style="width:100%; max-width:none; height:auto; border-radius:0;">
       <h2 class="subtitle has-text-centered">
-        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
+        Surg&Sigma;-DB is a large-scale multimodal data foundation for surgical intelligence. 
       </h2>
     </div>
   </div>
 </section>
-<!-- End teaser video -->
+<!-- End teaser image -->
 
 <!-- Paper abstract -->
 <section class="section hero is-light">
@@ -341,7 +403,7 @@
         <div class="content has-text-justified">
           <!-- TODO: Replace with your paper abstract -->
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
+            Surgical intelligence has the potential to improve the safety and consistency of surgical care, yet most existing surgical AI frameworks remain task-specific and struggle to generalize across procedures and institutions. Although multimodal foundation models, particularly multimodal large language models, have demonstrated strong cross-task capabilities across various medical domains, their advancement in surgery remains constrained by the lack of large-scale, systematically curated multimodal data. To address this challenge, we introduce Surg&Sigma;, a spectrum of large-scale multimodal data and foundation models for surgical intelligence. At the core of this framework lies Surg&Sigma;-DB, a large-scale multimodal data foundation designed to support diverse surgical tasks. Surg&Sigma;-DB consolidates heterogeneous surgical data sources (including open-source datasets, curated in-house clinical collections and web-source data) into a unified schema, aiming to improve label consistency and data standardization across heterogeneous datasets. Surg&Sigma;-DB spans 6 clinical specialties and diverse surgical types, providing rich image- and video-level annotations across 18 practical surgical tasks covering understanding, reasoning, planning, and generation, at an unprecedented scale (over 5.98M conversations). Beyond conventional multimodal conversations, Surg&Sigma;-DB incorporates hierarchical reasoning annotations, providing richer semantic cues to support deeper contextual understanding in complex surgical scenarios. We further provide empirical evidence through recently developed surgical foundation models built upon Surg&Sigma;-DB, illustrating the practical benefits of large-scale multimodal annotations, unified semantic design, and structured reasoning annotations for improving cross-task generalization and interpretability.
           </p>
         </div>
       </div>
@@ -351,122 +413,42 @@
 <!-- End paper abstract -->
 
 
-<!-- Image carousel -->
+<!-- Tasks overview image -->
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <!-- TODO: Replace with your research result images -->
-        <img src="static/images/carousel1.jpg" alt="First research result visualization" loading="lazy"/>
-        <!-- TODO: Replace with description of this result -->
-        <h2 class="subtitle has-text-centered">
-          First image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel2.jpg" alt="Second research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-          Second image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel3.jpg" alt="Third research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-         Third image description.
-       </h2>
-     </div>
-     <div class="item">
-      <!-- Your image here -->
-      <img src="static/images/carousel4.jpg" alt="Fourth research result visualization" loading="lazy"/>
-      <h2 class="subtitle has-text-centered">
-        Fourth image description.
-      </h2>
-    </div>
-  </div>
-</div>
-</div>
-</section>
-<!-- End image carousel -->
-
-
-
-
-<!-- Youtube video -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <!-- Paper video. -->
-      <h2 class="title is-3">Video Presentation</h2>
+      <h2 class="title is-3">Examples of Tasks in Surg&Sigma;-DB</h2>
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          
-          <div class="publication-video">
-            <!-- TODO: Replace with your YouTube video ID -->
-            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          </div>
+          <img src="static/images/covered_tasks.png"
+               alt="Examples of Tasks in SurgSigma-DB"
+               style="width:100%; height:auto;">
         </div>
       </div>
     </div>
   </div>
 </section>
-<!-- End youtube video -->
-
-
-<!-- Video carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video1">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video1" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel1.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video2">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video2" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel2.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video3">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video3" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel3.mp4" type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End video carousel -->
+<!-- End tasks overview image -->
 
 
 
 
-
-
-<!-- Paper poster -->
+<!-- Overview image -->
 <section class="hero is-small is-light">
   <div class="hero-body">
     <div class="container">
-      <h2 class="title">Poster</h2>
-
-      <!-- TODO: Replace with your poster PDF -->
-      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
-          </iframe>
-        
+      <h2 class="title is-3">Overview of the Data Curation and Annotation Pipeline</h2>
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <img src="static/images/anno_pipeline.png"
+               alt="Overview of the Data Curation and Annotation Pipeline"
+               style="width:100%; height:auto;">
+        </div>
       </div>
     </div>
-  </section>
-<!--End paper poster -->
+  </div>
+</section>
+<!-- End overview image -->
 
 
 
@@ -480,13 +462,8 @@
           <span class="copy-text">Copy</span>
         </button>
       </div>
-      <pre id="bibtex-code"><code>@article{YourPaperKey2024,
-  title={Your Paper Title Here},
-  author={First Author and Second Author and Third Author},
-  journal={Conference/Journal Name},
-  year={2024},
-  url={https://your-domain.com/your-project-page}
-}</code></pre>
+      <pre id="bibtex-code"><code>coming soon
+</code></pre>
     </div>
 </section>
 <!--End BibTex citation -->
