@@ -174,7 +174,7 @@ body {
 }
 
 .publication-authors a {
-   color: var(--primary-color) !important;
+   color: inherit !important; /* inherit color from affiliation class */
    text-decoration: none;
    font-weight: 600;
    transition: var(--transition);
@@ -197,12 +197,56 @@ body {
 }
 
 .publication-authors a:hover {
-    color: var(--primary-hover) !important;
+    color: inherit !important;
 }
 
 .author-block {
   display: inline-block;
-  margin-right: 0.5rem;
+  margin-right: 1rem;  /* 增大作者间横向间距 */
+}
+
+/* Author colors by affiliation */
+.author-nus {
+  color: #003D7C; /* NUS blue */
+}
+
+.author-cuhk {
+  color: #5B0F8C; /* CUHK purple */
+}
+
+.author-sjtu {
+  color: #A80000; /* SJTU red */
+}
+
+.author-nvidia {
+  color: #76B900; /* NVIDIA green */
+}
+
+/* Ensure nested strong/sup inherit the same color */
+.author-nus strong,
+.author-nus sup {
+  color: inherit;
+}
+
+.author-cuhk strong,
+.author-cuhk sup {
+  color: inherit;
+}
+
+.author-sjtu strong,
+.author-sjtu sup {
+  color: inherit;
+}
+
+.author-nvidia strong,
+.author-nvidia sup {
+  color: inherit;
+}
+
+/* Spacing between affiliations */
+.affiliation-item {
+  display: inline-block;
+  margin-right: 2rem;
 }
 
 .publication-banner img {
@@ -305,7 +349,7 @@ body {
 .eql-cntrb { 
   font-size: 0.875rem;
   color: var(--text-light);
-  font-style: italic;
+  font-style: normal;
 }
 
 /* Section Titles */
@@ -509,8 +553,9 @@ code {
   visibility: hidden;
   transform: translateY(-10px);
   transition: var(--transition);
-  max-height: 70vh;
-  overflow-y: auto;
+  /* Show all work items without internal scroll (4 works visible at once) */
+  max-height: none;
+  overflow-y: visible;
 }
 
 .more-works-dropdown.show {
