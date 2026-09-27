@@ -796,3 +796,99 @@ a:focus {
 
 
 
+
+/* Annotation guidelines task coverage */
+.annotation-table-scroll {
+  overflow-x: auto;
+  margin-bottom: 1.25rem;
+}
+
+.annotation-table-scroll:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 4px;
+}
+
+.annotation-table {
+  width: 100%;
+  min-width: 960px;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.annotation-table caption {
+  text-align: left;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+
+.annotation-table th,
+.annotation-table td {
+  padding: 0.65rem 0.45rem;
+  vertical-align: middle;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.annotation-table thead {
+  background: var(--background-secondary);
+  border-top: 2px solid var(--text-primary);
+  border-bottom: 2px solid var(--text-primary);
+}
+
+.annotation-table th {
+  color: var(--text-primary);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.annotation-table th[scope="row"],
+.annotation-table th[rowspan] {
+  text-align: left;
+  padding-left: 0.75rem;
+}
+
+.annotation-table .planning-start {
+  border-left: 1px solid var(--border-color);
+}
+
+.annotation-table td {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.annotation-table tbody tr:last-child {
+  border-bottom: 2px solid var(--text-primary);
+}
+
+.annotation-task-key {
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+#annotation-guidelines .annotation-table a.guideline-link {
+  color: #16803c;
+  display: inline-block;
+  min-width: 1.5rem;
+  text-decoration: none;
+}
+
+#annotation-guidelines .annotation-table a.guideline-link:hover,
+#annotation-guidelines .annotation-table a.guideline-link:focus-visible {
+  color: #11632f;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.annotation-guidelines {
+  margin-top: 2rem;
+}
+
+.annotation-table td.annotation-na {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+#annotation-guidelines .guideline-checkmark {
+  color: #16803c;
+  font-weight: 700;
+}
