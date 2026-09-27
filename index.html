@@ -82,7 +82,7 @@
   
   <!-- Critical CSS - Load synchronously -->
   <link rel="stylesheet" href="static/css/bulma.min.css">
-  <link rel="stylesheet" href="static/css/index.css">
+  <link rel="stylesheet" href="static/css/index.css?v=20260916-3">
   
   <!-- Non-critical CSS - Load asynchronously -->
   <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -358,15 +358,18 @@
                           <span class="icon">
                             <i class="fa fa-database"></i>
                           </span>
-                          <span>Dataset</span>
+                          <span>Surg&Sigma;-DB</span>
                         </a>
                       </span>
 
-                      <!-- Annotation guideline navigation -->
+                      <!-- Annotation platform link -->
                       <span class="link-block">
-                        <a href="#annotation-guidelines" class="external-link button is-normal is-rounded is-dark">
-                          <span class="icon"><i class="fas fa-book-open"></i></span>
-                          <span>Guidelines</span>
+                        <a href="https://label.surg-label-domain.win/" target="_blank" rel="noopener noreferrer"
+                           class="external-link button is-normal is-rounded is-dark">
+                          <span class="icon">
+                            <i class="fas fa-edit" aria-hidden="true"></i>
+                          </span>
+                          <span>LabelSurg</span>
                         </a>
                       </span>
 
@@ -400,7 +403,9 @@
         <h2 class="title is-3">Updates</h2>
         <div class="content has-text-left">
           <ul>
-            <li><strong>[2026-04]</strong> Released the <strong>CholecT50 subset</strong> of <strong>Surg&Sigma;-DB v0.1</strong> on <a href="https://huggingface.co/datasets/SurgSigma/SurgSigma-DB/tree/main">Hugging Face</a>.</li>
+            <li><strong>[2026-09]</strong> Our surgical video annotation platform <strong>LabelSurg</strong>, powered by our state-of-the-art surgical AI models, is available at <a href="https://label.surg-label-domain.win/">this link</a>.</li>
+            <li><strong>[2026-09]</strong> Released the <strong>GraSP subset</strong> of <strong>Surg&Sigma;-DB</strong> on <a href="https://huggingface.co/datasets/SurgSigma/SurgSigma-DB/tree/main">Hugging Face</a>; with new task annotations including triplets, safety assessment, and more, along with the corresponding <a href="#annotation-guidelines">annotation protocol</a>.</li>
+            <li><strong>[2026-04]</strong> Released the <strong>CholecT50 subset</strong> of <strong>Surg&Sigma;-DB</strong> on <a href="https://huggingface.co/datasets/SurgSigma/SurgSigma-DB/tree/main">Hugging Face</a>.</li>
             <li><strong>[2026-03]</strong> Our paper <strong>Surg&Sigma;: A Spectrum of Large-Scale Multimodal Data and Foundation Models for Surgical Intelligence</strong> is available on <a href="https://arxiv.org/abs/2603.16822">arXiv</a>.</li>
           </ul>
         </div>
@@ -461,43 +466,95 @@
                style="width:100%; height:auto;">
         </div>
       </div>
+      <div id="annotation-guidelines" class="annotation-guidelines">
+        <div class="content" id="released-data-summary">
+          <p><strong>Summary of Currently Released Data</strong></p>
+          <p>For the ground-truths we labeled, we also provide corresponding annotation guidelines (please click <span class="guideline-checkmark" aria-label="green checkmark">✓</span> for more details).</p>
+        </div>
+    <div class="annotation-table-scroll" role="region" aria-label="Task coverage for CholecT50 and GraSP" tabindex="0">
+      <table class="annotation-table" aria-labelledby="released-data-summary" aria-describedby="annotation-task-key">
+        <thead>
+          <tr>
+            <th scope="col" rowspan="2">Datasets</th>
+            <th scope="colgroup" colspan="13">Understanding &amp; Reasoning</th>
+            <th scope="colgroup" colspan="5" class="planning-start">Planning &amp; Generation</th>
+          </tr>
+          <tr>
+              <th scope="col" title="Instrument Recognition">1</th>
+              <th scope="col" title="Instrument Localization">2</th>
+              <th scope="col" title="Instrument Segmentation">3</th>
+              <th scope="col" title="Tissue and Organ Recognition">4</th>
+              <th scope="col" title="Tissue and Organ Localization">5</th>
+              <th scope="col" title="Phase Recognition">6</th>
+              <th scope="col" title="Step Recognition">7</th>
+              <th scope="col" title="Action Recognition">8</th>
+              <th scope="col" title="Triplet Recognition">9</th>
+              <th scope="col" title="Depth Estimation">10</th>
+              <th scope="col" title="Safety Assessment">11</th>
+              <th scope="col" title="Surgical Image Captioning">12</th>
+              <th scope="col" title="Surgical Video Captioning">13</th>
+              <th scope="col" title="Action Remaining Prediction" class="planning-start">14</th>
+              <th scope="col" title="Next Action Planning">15</th>
+              <th scope="col" title="Desmoking">16</th>
+              <th scope="col" title="Next Frame Prediction">17</th>
+              <th scope="col" title="Conditional Surgical Video Generation">18</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+              <th scope="row">CholecT50</th>
+              <td><span aria-label="Covered">✓</span></td>
+              <td><span aria-label="Covered">✓</span></td>
+              <td><span aria-label="Covered">✓</span></td>
+              <td><span aria-label="Covered">✓</span></td>
+              <td></td>
+              <td><span aria-label="Covered">✓</span></td>
+              <td class="annotation-na">NA</td>
+              <td><a class="guideline-link" href="static/guidelines/task-8.html" aria-label="CholecT50: Action Recognition annotation guidelines" title="CholecT50: Action Recognition annotation guidelines">✓</a></td>
+              <td><span aria-label="Covered">✓</span></td>
+              <td><a class="guideline-link" href="static/guidelines/task-10.html" aria-label="CholecT50: Depth Estimation annotation guidelines" title="CholecT50: Depth Estimation annotation guidelines">✓</a></td>
+              <td><span aria-label="Covered">✓</span></td>
+              <td><a class="guideline-link" href="static/guidelines/task-12.html" aria-label="CholecT50: Surgical Image Captioning annotation guidelines" title="CholecT50: Surgical Image Captioning annotation guidelines">✓</a></td>
+              <td><a class="guideline-link" href="static/guidelines/task-13.html" aria-label="CholecT50: Surgical Video Captioning annotation guidelines" title="CholecT50: Surgical Video Captioning annotation guidelines">✓</a></td>
+              <td class="planning-start"><a class="guideline-link" href="static/guidelines/task-14.html" aria-label="CholecT50: Action Remaining Prediction annotation guidelines" title="CholecT50: Action Remaining Prediction annotation guidelines">✓</a></td>
+              <td><a class="guideline-link" href="static/guidelines/task-15.html" aria-label="CholecT50: Next Action Planning annotation guidelines" title="CholecT50: Next Action Planning annotation guidelines">✓</a></td>
+              <td><a class="guideline-link" href="static/guidelines/coming-soon.html" aria-label="CholecT50: Task 16 annotation guidelines — Coming soon" title="CholecT50: Task 16 annotation guidelines — Coming soon">✓</a></td>
+              <td><a class="guideline-link" href="static/guidelines/task-17.html" aria-label="CholecT50: Next Frame Prediction annotation guidelines" title="CholecT50: Next Frame Prediction annotation guidelines">✓</a></td>
+              <td><a class="guideline-link" href="static/guidelines/task-18.html" aria-label="CholecT50: Conditional Surgical Video Generation annotation guidelines" title="CholecT50: Conditional Surgical Video Generation annotation guidelines">✓</a></td>
+            </tr>
+            <tr>
+              <th scope="row">GraSP</th>
+              <td><span aria-label="Covered">✓</span></td>
+              <td><span aria-label="Covered">✓</span></td>
+              <td><span aria-label="Covered">✓</span></td>
+              <td></td>
+              <td></td>
+              <td><span aria-label="Covered">✓</span></td>
+              <td><span aria-label="Covered">✓</span></td>
+              <td><a class="guideline-link" href="static/guidelines/task-8.html" aria-label="GraSP: Action Recognition annotation guidelines" title="GraSP: Action Recognition annotation guidelines">✓</a></td>
+              <td><a class="guideline-link" href="static/guidelines/grasp-task-9.html" aria-label="GraSP: Triplet Recognition annotation guidelines" title="GraSP: Triplet Recognition annotation guidelines">✓</a></td>
+              <td><a class="guideline-link" href="static/guidelines/task-10.html" aria-label="GraSP: Depth Estimation annotation guidelines" title="GraSP: Depth Estimation annotation guidelines">✓</a></td>
+              <td><a class="guideline-link" href="static/guidelines/grasp-task-11.html" aria-label="GraSP: Safety Assessment annotation guidelines" title="GraSP: Safety Assessment annotation guidelines">✓</a></td>
+              <td><a class="guideline-link" href="static/guidelines/task-12.html" aria-label="GraSP: Surgical Image Captioning annotation guidelines" title="GraSP: Surgical Image Captioning annotation guidelines">✓</a></td>
+              <td><a class="guideline-link" href="static/guidelines/task-13.html" aria-label="GraSP: Surgical Video Captioning annotation guidelines" title="GraSP: Surgical Video Captioning annotation guidelines">✓</a></td>
+              <td class="planning-start"><a class="guideline-link" href="static/guidelines/task-14.html" aria-label="GraSP: Action Remaining Prediction annotation guidelines" title="GraSP: Action Remaining Prediction annotation guidelines">✓</a></td>
+              <td><a class="guideline-link" href="static/guidelines/task-15.html" aria-label="GraSP: Next Action Planning annotation guidelines" title="GraSP: Next Action Planning annotation guidelines">✓</a></td>
+              <td><a class="guideline-link" href="static/guidelines/coming-soon.html" aria-label="GraSP: Task 16 annotation guidelines — Coming soon" title="GraSP: Task 16 annotation guidelines — Coming soon">✓</a></td>
+              <td><a class="guideline-link" href="static/guidelines/task-17.html" aria-label="GraSP: Next Frame Prediction annotation guidelines" title="GraSP: Next Frame Prediction annotation guidelines">✓</a></td>
+              <td><a class="guideline-link" href="static/guidelines/task-18.html" aria-label="GraSP: Conditional Surgical Video Generation annotation guidelines" title="GraSP: Conditional Surgical Video Generation annotation guidelines">✓</a></td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="content annotation-task-key" id="annotation-task-key">
+      <p><strong>Understanding and Reasoning:</strong> 1: Instrument Recognition; 2: Instrument Localization; 3: Instrument Segmentation; 4: Tissue and Organ Recognition; 5: Tissue and Organ Localization; 6: Phase Recognition; 7: Step Recognition; 8: Action Recognition; 9: Triplet Recognition; 10: Depth Estimation; 11: Safety Assessment; 12: Surgical Image Captioning; 13: Surgical Video Captioning.</p>
+      <p><strong>Planning and Generation:</strong> 14: Action Remaining Prediction; 15: Next Action Planning; 16: Desmoking; 17: Next Frame Prediction; 18: Conditional Surgical Video Generation.</p>
+    </div>
+      </div>
     </div>
   </div>
 </section>
-<!-- End overview image -->
-
-<!-- Public annotation guidelines -->
-<section class="section" id="annotation-guidelines">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Annotation Guidelines</h2>
-    <p class="has-text-centered">Browse the three public surgical annotation guidelines.</p>
-    <div class="columns is-variable is-4 is-multiline">
-      <div class="column is-one-third-desktop">
-        <div class="box" style="height:100%">
-          <h3 class="title is-5">GraSP RARP triplet labels</h3>
-          <p>Instrument, action, and target labels; 156 valid triplets; visual references.</p>
-          <p><a href="static/guidelines/grasp-rarp-triplet.html">Read online</a> · <a href="static/guidelines/RARP_guideline_triplet.docx">Word document</a></p>
-        </div>
-      </div>
-      <div class="column is-one-third-desktop">
-        <div class="box" style="height:100%">
-          <h3 class="title is-5">Basic Surgical Actions 10</h3>
-          <p>Guideline for the ten basic surgical action categories.</p>
-          <p><a href="static/guidelines/Basic%20Surgical%20Actions-10.pdf">Open PDF guideline</a></p>
-        </div>
-      </div>
-      <div class="column is-one-third-desktop">
-        <div class="box" style="height:100%">
-          <h3 class="title is-5">RARP seminal vesicle safe window</h3>
-          <p>Guideline for the safe window during seminal vesicle dissection.</p>
-          <p><a href="static/guidelines/Safe%20window%20for%20seminal%20vesicle%20dissection%20in%20RARP.docx">Open Word guideline</a></p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
+<!-- End overview and annotation guidelines -->
 
 <!--BibTex citation -->
 <section class="section" id="BibTeX">
