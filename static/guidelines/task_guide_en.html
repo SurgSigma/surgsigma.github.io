@@ -1,0 +1,174 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>SurgΣ-DB Task Guide</title><meta name="author" content="SurgΣ-DB"><style>
+@page {size: A4; margin: 16mm 17mm 18mm;
+ @bottom-left {content: "SurgΣ-DB · Task Guide"; font-family: Guide; font-size: 8pt; color:#657781;}
+ @bottom-right {content: counter(page); font-family: Guide; font-size: 8pt; color:#657781;}}
+body {font-family: Guide, "Noto Sans CJK SC", "Microsoft YaHei", sans-serif; font-size:10.5pt; line-height:1.48; color:#203b49;}
+.guide-page {break-before:page;}
+.guide-page:first-child {break-before:auto;}
+h1 {font-size:30pt; line-height:1.2; color:#173c4c; margin:8mm 0 4mm;}
+h2 {font-size:17pt; line-height:1.3; color:#137f7a; margin:3mm 0; padding-top:3mm; border-top:1.6pt solid #137f7a; break-after:avoid;}
+h3 {font-size:20pt; line-height:1.3; color:#173c4c; margin:4mm 0; break-after:avoid;}
+h3.kicker {font-size:13pt; font-weight:400; color:#657781; margin:0 0 7mm;}
+p {margin:2.8mm 0 3.2mm; orphans:2; widows:2;}
+strong {font-weight:700;}
+a {color:#247fac; text-decoration:none;}
+em {font-style:normal;}
+img {display:block; width:100%; height:auto; margin:3mm 0 2mm;}
+img.example-image {width:55%; margin:2mm 0;}
+.example,.construction {break-inside:avoid;}
+.caption {font-size:9pt; line-height:1.4; color:#657781; margin:2mm 0 3mm;}
+.references {font-size:10.5pt;}
+.references h2 {font-size:20pt; margin-bottom:6mm;}
+.overview {font-size:10.5pt;}
+.overview h2 {margin-top:7mm;}
+table {width:100%; border-collapse:collapse; table-layout:fixed; font-size:9.3pt; line-height:1.4; margin-top:4mm;}
+thead {display:table-header-group;}
+th,td {padding:2.5mm 2mm; text-align:left; border-bottom:0.5pt solid #d6e1e5; vertical-align:top;}
+th {color:#137f7a; background:#eef5f5;}
+th:first-child,td:first-child {width:9%;}
+th:nth-child(2),td:nth-child(2) {width:49%;}
+th:nth-child(3),td:nth-child(3) {width:42%;}
+tr {break-inside:avoid;}
+video {display:block; width:100%; max-height:520px; margin:16px 0; background:#12252e;}
+@media screen {
+ html {background:#e8eef1; scroll-behavior:smooth;}
+ body {max-width:900px; margin:24px auto; font-size:17px; line-height:1.65;}
+ .guide-page {background:white; padding:32px 44px; margin-bottom:24px; border-radius:8px;}
+ h1 {font-size:40px;} h2 {font-size:27px;} h3 {font-size:30px;}
+ table {font-size:15px;} .caption {font-size:14px;}
+}
+@media screen and (max-width:650px) {
+ body {margin:0; font-size:16px;} .guide-page {padding:22px 18px; border-radius:0;}
+ h1 {font-size:30px;} h3 {font-size:25px;} table {font-size:12px;}
+ img.example-image {width:100%;}
+}
+@media print {video {display:none;}}
+</style></head><body><section class="guide-page overview"><h1>SurgΣ-DB Task Guide</h1>
+<h3 class="kicker">From Surgical Scene Understanding to Prediction and Generation</h3>
+<p>SurgΣ-DB brings together surgical images, videos and language annotations for understanding, reasoning, planning and generation. This guide introduces seven tasks, showing how source data and labels become task samples. Task numbers follow the <a href="https://surgsigma.github.io/">SurgΣ project</a>; task 17 is presented here as Next Frame Generation.</p>
+<p>A still image captures instruments, tissue and spatial relationships at one moment. Video also captures how actions unfold over time. The illustrated examples depict laparoscopic cholecystectomy, using CholecT50 images and corresponding Cholec80 footage.</p>
+<p>The diagrams distinguish source data and labels, construction methods, and task inputs and targets. Source labels include action triplets, time boundaries, descriptions, depth maps and instrument masks. Annotations used to construct targets are not necessarily inputs available to the model.</p>
+<h2>Contents</h2>
+<table>
+<thead>
+<tr>
+<th>No.</th>
+<th>Task</th>
+<th>Task group</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10</td>
+<td>Depth Estimation</td>
+<td>Understanding and Reasoning</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Surgical Image Captioning</td>
+<td>Understanding and Reasoning</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Surgical Video Captioning</td>
+<td>Understanding and Reasoning</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Action Remaining Prediction</td>
+<td>Planning and Generation</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Next Action Planning</td>
+<td>Planning and Generation</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Next Frame Generation</td>
+<td>Planning and Generation</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Conditional Surgical Video Generation</td>
+<td>Planning and Generation</td>
+</tr>
+</tbody>
+</table>
+<p>Video examples can be played in the accompanying HTML guide or opened through the MP4 links in this Markdown document.</p></section>
+<section class="guide-page task"><h2>Understanding and Reasoning</h2>
+<h3 id="task-10">10 · Depth Estimation</h3>
+<p>Depth estimation represents the relative depth of instruments and tissue from a single surgical image, supporting spatial perception and geometric modeling. Its output describes relative depth, not distance in physical units.</p>
+<p><strong>Input and output:</strong> An RGB surgical image → an aligned, single-channel relative depth map.</p>
+<p><strong>Source data and labels:</strong> An RGB surgical frame. Depth supervision is added as a model-produced pseudo-label, rather than a sensor measurement.</p>
+<p><strong>Construction method:</strong> Following the <a href="https://arxiv.org/html/2603.16822v1#S3.SS1.SSS4">published pipeline</a>, Depth Anything V2 produces relative depth D from RGB. The image is the task input and D is the target, with matching field of view and pixel alignment.</p>
+<div class="construction"><p><img alt="RGB input, Depth Anything V2, and its relative depth target" src="figures/depth_en.png" /></p>
+<p class="caption">Figure 1. The RGB image and corresponding depth pseudo-label form a supervised pair.</p></div>
+<p><strong>Example instruction:</strong> Estimate the relative depth of the RGB image on the left and output a single-channel depth map.<br />
+<strong>Target output:</strong> The aligned relative depth map on the right.</p></section>
+<section class="guide-page task"><h3 id="task-12">12 · Surgical Image Captioning</h3>
+<p>Image captioning expresses a surgical scene in natural language, describing visible instruments, tissue and their relationships.</p>
+<p><strong>Input and output:</strong> A surgical image → a concise scene description.</p>
+<p><strong>Source data and labels:</strong> A frame and instrument–action–target triplets. This example has “grasper–grasp–gallbladder” and “hook–dissect–cystic artery” labels.</p>
+<p><strong>Construction method:</strong> The <a href="https://arxiv.org/html/2603.16822v1#S3.SS1.SSS4">paper</a> uses Qwen3-VL-235B to enrich incomplete descriptions, forming image–caption pairs. The diagram shows source labels separately from the enrichment step; the exact model prompt remains to be supplied.</p>
+<p><strong>Caption-generation prompt: TODO</strong></p>
+<div class="construction"><p><img alt="Source labels, caption enrichment, and the image-to-caption task" src="figures/image_caption_en.png" /></p>
+<p class="caption">Figure 2. Structured triplets and natural-language captions are different forms of supervision.</p></div>
+<div class="example"><p><strong>Q:</strong> Describe the following surgical image.</p>
+<p><img class="example-image" alt="Input image for the captioning example" src="media/image_caption_input.png" /></p>
+<p><strong>A:</strong> A grasper entering from the left holds tissue, while a hook entering from the upper right contacts exposed tissue near the center. The liver surface is visible in the background.</p></div></section>
+<section class="guide-page task"><p><a id="video-captioning"></a></p>
+<h3 id="task-13">13 · Surgical Video Captioning</h3>
+<p>Video captioning describes actions, instrument movement and changes in their temporal order, extending scene understanding beyond a single image.</p>
+<p><strong>Input and output:</strong> A surgical video clip → a description of its main action and temporal changes.</p>
+<p><strong>Source data and labels:</strong> Video with time-aligned action labels. In the example, “irrigator–aspirate–fluid” occurs at each of the four illustrated moments; the caption additionally describes movement and withdrawal.</p>
+<p><strong>Construction method:</strong> Select a clip and align its existing action labels along its timeline. The <a href="https://arxiv.org/html/2603.16822v1#S3.SS1.SSS4">paper's</a> Qwen3-VL-235B pipeline enriches incomplete descriptions. Pair the clip with a caption covering the action and its progression.</p>
+<p><strong>Caption-generation prompt: TODO</strong></p>
+<div class="construction"><p><img alt="One video timeline, action labels, and caption enrichment" src="figures/video_caption_en.png" /></p>
+<p class="caption">Figure 3. Four moments from one 23-second clip. Times are relative to the start of the video.</p></div>
+<p><strong>Q:</strong> What is happening in this surgical video?<br />
+<strong>Input video:</strong> <a href="media/surgical_clip.mp4">Watch the example video</a>.</p><video controls preload="metadata" playsinline poster="media/video_poster.png"><source src="media/surgical_clip.mp4" type="video/mp4"></video>
+<p><strong>A:</strong> An irrigator entering from the right moves its tip over a blood-stained tissue surface and aspirates fluid. It is withdrawn from view near the end of the clip.</p></section>
+<section class="guide-page task"><h2>Planning and Generation</h2>
+<h3 id="task-14">14 · Action Remaining Prediction</h3>
+<p>Action remaining prediction estimates how many seconds remain until the current basic surgical action ends, using observations available so far.</p>
+<p><strong>Input and output:</strong> The observed clip and current action information → the remaining duration in seconds.</p>
+<p><strong>Source data and labels:</strong> Surgical video with an action class, start time s and end time e for each action clip.</p>
+<p><strong>Construction method:</strong> Set an observation cutoff t within the action. Use footage from s to t as the observed clip. The remaining-time target is e − t; footage after t is not included in the input.</p>
+<div class="construction"><p><img alt="Observed clip, observation cutoff, action end, and remaining duration" src="figures/action_remaining_en.png" /></p>
+<p class="caption">Figure 4. The input is the observed clip. The interval from t to e determines the remaining-time target.</p></div>
+<p><strong>Q:</strong> How many seconds remain before the action in the observed clip ends?<br />
+<strong>A:</strong> Remaining time = e − t seconds.</p></section>
+<section class="guide-page task"><h3 id="task-15">15 · Next Action Planning</h3>
+<p>Next action planning uses current observations and historical context to predict the subsequent surgical action, modeling transitions in the workflow.</p>
+<p><strong>Input and output:</strong> Observed action context → the next action's category or a short description.</p>
+<p><strong>Source data and labels:</strong> Temporally ordered action clips, each with a class and start/end times: A1 → A2 → A3.</p>
+<p><strong>Construction method:</strong> Use the current clip and preceding context as input, and the immediately following clip's label as the target. In the diagram, A1 and A2 form the observed context; A3 supplies the answer, without its footage entering the input.</p>
+<div class="construction"><p><img alt="Observed action clips and the next action label" src="figures/next_action_en.png" /></p>
+<p class="caption">Figure 5. The next clip's action label supplies supervision for the observed context.</p></div>
+<p><strong>Q:</strong> Based on the observed clip, which action comes next?<br />
+<strong>A:</strong> A3, the action label immediately following the current clip A2.</p></section>
+<section class="guide-page task"><h3 id="task-17">17 · Next Frame Generation</h3>
+<p>Next frame generation produces a surgical image at a specified future time from the current view and supplied conditions, modeling instrument motion and scene changes.</p>
+<p><strong>Input and output:</strong> A current RGB frame, time interval and action/motion text → a future RGB frame.</p>
+<p><strong>Source data and labels:</strong> Video frames, action labels and instrument GT masks. This example includes “hook–dissect–omentum”; the blue overlays mark the hook in two frames, 1 second apart.</p>
+<p><strong>Construction method:</strong> Compare the same instrument's mask positions to form motion-direction text. Combine the current frame, interval and action/motion conditions as input; use the later frame as the target. Future frames and masks are used for offline construction only, not as additional visual inputs. This pair uses 1 second; the subset includes intervals of 1–10 seconds.</p>
+<div class="construction"><p><img alt="Actual hook masks used offline, followed by the RGB input and reference frame" src="figures/next_frame_en.png" /></p>
+<p class="caption">Figure 6. Blue overlays show the corresponding instrument masks. The generation task receives only the plain current frame and text conditions.</p></div>
+<p><strong>Example instruction:</strong> Generate the surgical image 1 second after the current frame. The action is dissection and the hook moves right.<br />
+<strong>Target output:</strong> The reference frame at t + 1 second, shown at the lower right.</p></section>
+<section class="guide-page task"><h3 id="task-18">18 · Conditional Surgical Video Generation</h3>
+<p>Conditional video generation produces surgical clips from text, images or their combination. This text-to-video example reverses the pairing used in <a href="#video-captioning">Surgical Video Captioning</a>: the description becomes the condition and the video becomes the target.</p>
+<p><strong>Input and output:</strong> A text description of surgical activity → a matching video clip.</p>
+<p><strong>Source data and labels:</strong> Video paired with a description. The original short label is “right suction-irrigator aspirates blood on tissue.” The completed description also captures movement and withdrawal.</p>
+<p><strong>Construction method:</strong> Take the clip-level description as the generation condition and the original footage as the supervision target. Video captioning maps video → text; this task maps text → video.</p>
+<div class="construction"><p><img alt="Text condition leading to one target video, displayed along its timeline" src="figures/video_generation_en.png" /></p>
+<p class="caption">Figure 7. A video–description pair supplies the generation condition and target. The images show successive moments of the target video.</p></div>
+<p><strong>Example instruction:</strong> Generate a surgical video matching: “An irrigator entering from the right moves its tip over a blood-stained tissue surface and aspirates fluid. It is withdrawn from view near the end of the clip.”<br />
+<strong>Target output:</strong> <a href="media/surgical_clip.mp4">Watch the target video</a>.</p><video controls preload="metadata" playsinline poster="media/video_poster.png"><source src="media/surgical_clip.mp4" type="video/mp4"></video></section>
+<section class="guide-page references"><a id="video-attachment"></a><h2>Learn More</h2>
+<p>The <a href="https://surgsigma.github.io/">SurgΣ project page</a> and <a href="https://arxiv.org/html/2603.16822v1#S3.SS1.SSS2">paper, §3.1.2</a> introduce the task taxonomy. Task 17, titled Next Frame Generation here, corresponds to the project's Next Frame Prediction task. Related work on basic surgical actions is described by <a href="https://med-air.github.io/BSA/">BSA</a>.</p>
+<p>The depth pseudo-labeling and caption-enrichment methods are described in <a href="https://arxiv.org/html/2603.16822v1#S3.SS1.SSS4">SurgΣ, §3.1.4</a>: Depth Anything V2 for depth and Qwen3-VL-235B for caption enrichment.</p>
+<p>Example images and videos originate from <a href="https://github.com/CAMMA-public/cholect50">CholecT50</a> and <a href="https://camma.unistra.fr/datasets/">Cholec80</a>. The next-frame diagram overlays the corresponding CholecInstanceSeg instrument annotations. Follow the project and original dataset license terms when using the data, and cite the corresponding work.</p>
+<p>The paired depth map is supplied by the <a href="https://huggingface.co/datasets/SurgSigma/SurgSigma-DB/tree/main">SurgΣ-DB public release</a>.</p>
+<p>For video playback, open the accompanying HTML guide. The PDF also includes the example MP4 as an attachment; access it through a compatible reader's Attachments panel.</p></section></body></html>

@@ -1,0 +1,117 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>GraSP Safety Assessment · SurgΣ-DB Annotation Guidelines</title><meta name="author" content="SurgΣ-DB"><style>
+@page {size: A4; margin: 16mm 17mm 18mm;
+ @bottom-left {content: "SurgΣ-DB · Task Guide"; font-family: Guide; font-size: 8pt; color:#657781;}
+ @bottom-right {content: counter(page); font-family: Guide; font-size: 8pt; color:#657781;}}
+body {font-family: Guide, "Noto Sans CJK SC", "Microsoft YaHei", sans-serif; font-size:10.5pt; line-height:1.48; color:#203b49;}
+.guide-page {break-before:page;}
+.guide-page:first-child {break-before:auto;}
+h1 {font-size:30pt; line-height:1.2; color:#173c4c; margin:8mm 0 4mm;}
+h2 {font-size:17pt; line-height:1.3; color:#137f7a; margin:3mm 0; padding-top:3mm; border-top:1.6pt solid #137f7a; break-after:avoid;}
+h3 {font-size:20pt; line-height:1.3; color:#173c4c; margin:4mm 0; break-after:avoid;}
+h3.kicker {font-size:13pt; font-weight:400; color:#657781; margin:0 0 7mm;}
+p {margin:2.8mm 0 3.2mm; orphans:2; widows:2;}
+strong {font-weight:700;}
+a {color:#247fac; text-decoration:none;}
+em {font-style:normal;}
+img {display:block; width:100%; height:auto; margin:3mm 0 2mm;}
+img.example-image {width:55%; margin:2mm 0;}
+.example,.construction {break-inside:avoid;}
+.caption {font-size:9pt; line-height:1.4; color:#657781; margin:2mm 0 3mm;}
+.references {font-size:10.5pt;}
+.references h2 {font-size:20pt; margin-bottom:6mm;}
+.overview {font-size:10.5pt;}
+.overview h2 {margin-top:7mm;}
+table {width:100%; border-collapse:collapse; table-layout:fixed; font-size:9.3pt; line-height:1.4; margin-top:4mm;}
+thead {display:table-header-group;}
+th,td {padding:2.5mm 2mm; text-align:left; border-bottom:0.5pt solid #d6e1e5; vertical-align:top;}
+th {color:#137f7a; background:#eef5f5;}
+th:first-child,td:first-child {width:9%;}
+th:nth-child(2),td:nth-child(2) {width:49%;}
+th:nth-child(3),td:nth-child(3) {width:42%;}
+tr {break-inside:avoid;}
+video {display:block; width:100%; max-height:520px; margin:16px 0; background:#12252e;}
+@media screen {
+ html {background:#e8eef1; scroll-behavior:smooth;}
+ body {max-width:900px; margin:24px auto; font-size:17px; line-height:1.65;}
+ .guide-page {background:white; padding:32px 44px; margin-bottom:24px; border-radius:8px;}
+ h1 {font-size:40px;} h2 {font-size:27px;} h3 {font-size:30px;}
+ table {font-size:15px;} .caption {font-size:14px;}
+}
+@media screen and (max-width:650px) {
+ body {margin:0; font-size:16px;} .guide-page {padding:22px 18px; border-radius:0;}
+ h1 {font-size:30px;} h3 {font-size:25px;} table {font-size:12px;}
+ img.example-image {width:100%;}
+}
+@media print {video {display:none;}}
+
+.safety-title {font-size:24px; margin-top:24px;}
+.safety-figures {display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; margin:20px 0;}
+.safety-figures figure {margin:0;}
+.safety-diagram {max-width:618px; margin:24px auto;}
+.safety-figures img {margin:0;}
+@media screen and (max-width:650px) {.safety-figures {grid-template-columns:1fr;}}
+
+.safety-case {margin:24px 0;}
+.safety-case-scroll {overflow-x:auto;}
+.safety-case svg {display:block; width:100%; min-width:1000px; height:auto;}
+.safety-case-scroll:focus-visible {outline:2px solid #137f7a; outline-offset:4px;}
+.safety-case .anatomy-label {font:26px sans-serif; fill:#203b49;}
+.safety-case .leader-halo {stroke:white; stroke-width:5; fill:none;}
+.safety-case .leader {stroke:#203b49; stroke-width:2.5; fill:none;}
+</style></head><body><main class="guide-page task"><nav aria-label="Back to project"><a href="../../index.html#annotation-guidelines">← Back to released data</a></nav>
+<h3>11 · Safety Assessment</h3>
+<p class="caption">GraSP · Robot-assisted radical prostatectomy (RARP)</p>
+<h2 class="safety-title">Safe window for seminal vesicle dissection</h2>
+<p>The safe surgical window for seminal vesicle dissection[1] is critical for secure management of the seminal vesicle vasculature and lateral pedicles, and for defining the nerve-sparing plane.</p>
+<p>This is primarily accomplished in Step 8. Following retraction of the seminal vesicle, a distinct anatomical space is exposed: the lateral prostatic ligaments form the lateral boundaries, the bladder neck lies inferiorly, the prostate and seminal vesicle are situated superiorly, and Denonvilliers&#x27; fascia constitutes the posterior boundary. This also marks the commencement of Denonvilliers&#x27; fascia dissection, with the inferior aspect gradually transitioning into the rectum.</p>
+<h2>Three Criteria for Safe Seminal Vesicle Dissection (Analogous to CVS Principles)</h2>
+<p><strong>Criterion 1</strong> Bilateral ampullae of the vas deferens and the full length of the seminal vesicles are clearly identifiable, with complete removal of the subperitoneal fat and loose areolar connective tissue overlying the seminal vesicle surfaces.</p>
+<p><strong>Criterion 2</strong> The anatomical boundaries of the safe visual field are fully delineated:</p>
+<ul><li>Lateral boundary: prostatic lateral ligaments (pedicles)</li><li>Inferior boundary: bladder neck</li><li>Superior structures: prostate and seminal vesicles</li><li>Posterior boundary: Denonvilliers&#x27; fascia (rectovesical septum)</li></ul>
+<p><strong>Criterion 3</strong> Upon cephalad suspension and traction of the seminal vesicle-vas deferens complex, the anterior layer of Denonvilliers&#x27; fascia presents as a uniformly tensioned, smooth, and continuous fascial plane, devoid of focal depressions, adipose tissue prominences, or disorganized fibrous striations; the intended incision path lies entirely within this anterior fascial layer, permitting direct progression to the fascial dissection of Step 9, ensuring correct anatomical plane entry without inadvertent deviation into the prerectal space.</p>
+<h2>Illustrations</h2>
+<figure class="safety-diagram"><img src="media/grasp-safety/image1.png" alt="Anatomical illustration of seminal vesicle dissection from the supplied guideline"></figure>
+<figure class="safety-case"><div class="safety-case-scroll" role="region" aria-label="CASE001 anatomical labels" tabindex="0">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 490" role="img" aria-labelledby="case-001-title case-001-desc">
+<title id="case-001-title">CASE001 ID:06695 — original and annotated surgical views</title>
+<desc id="case-001-desc">Labels identify the seminal vesicle, Denonvilliers’ fascia, prostatic ligaments and bladder neck.</desc>
+<image href="media/grasp-safety/image2.png" x="0" y="70" width="600" height="375" preserveAspectRatio="xMidYMid meet"/>
+<image href="media/grasp-safety/image3.jpeg" x="620" y="70" width="600" height="375" preserveAspectRatio="xMidYMid meet"/>
+<polyline class="leader-halo" points="760,40 860,100"/>
+<polyline class="leader" points="760,40 860,100"/>
+<text class="anatomy-label" x="650" y="30">Seminal vesicle</text>
+<polyline class="leader-halo" points="1080,40 968,205"/>
+<polyline class="leader" points="1080,40 968,205"/>
+<text class="anatomy-label" x="1000" y="30">Denonvilliers’ fascia</text>
+<polyline class="leader-halo" points="1230,252 1052,231"/>
+<polyline class="leader" points="1230,252 1052,231"/>
+<text class="anatomy-label" x="1240" y="270">Prostatic ligaments</text>
+<polyline class="leader-halo" points="1230,377 920,310"/>
+<polyline class="leader" points="1230,377 920,310"/>
+<text class="anatomy-label" x="1240" y="395">The bladder neck</text>
+</svg></div>
+<figcaption class="caption"><strong>CASE001 ID:06695</strong> · Original view (left) and annotated view (right).</figcaption></figure>
+<figure class="safety-case"><div class="safety-case-scroll" role="region" aria-label="CASE002 anatomical labels" tabindex="0">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 490" role="img" aria-labelledby="case-002-title case-002-desc">
+<title id="case-002-title">CASE002 ID:06178 — original and annotated surgical views</title>
+<desc id="case-002-desc">Labels identify the seminal vesicle, Denonvilliers’ fascia, prostatic ligaments and bladder neck.</desc>
+<image href="media/grasp-safety/image4.jpeg" x="0" y="70" width="600" height="375" preserveAspectRatio="xMidYMid meet"/>
+<image href="media/grasp-safety/image5.jpeg" x="620" y="70" width="600" height="375" preserveAspectRatio="xMidYMid meet"/>
+<polyline class="leader-halo" points="770,40 872,198"/>
+<polyline class="leader" points="770,40 872,198"/>
+<text class="anatomy-label" x="630" y="30">Prostatic ligaments</text>
+<polyline class="leader-halo" points="1100,40 956,119"/>
+<polyline class="leader" points="1100,40 956,119"/>
+<text class="anatomy-label" x="1010" y="30">Seminal vesicle</text>
+<polyline class="leader-halo" points="1230,225 1040,284"/>
+<polyline class="leader" points="1230,225 1040,284"/>
+<text class="anatomy-label" x="1240" y="240">Denonvilliers’ fascia</text>
+<polyline class="leader-halo" points="1230,351 1040,333"/>
+<polyline class="leader" points="1230,351 1040,333"/>
+<text class="anatomy-label" x="1240" y="370">The bladder neck</text>
+</svg></div>
+<figcaption class="caption"><strong>CASE002 ID:06178</strong> · Original view (left) and annotated view (right).</figcaption></figure>
+<h2>References</h2>
+<p>[1]Hemal AK, Bhandari A, Tewari A, Menon M. The window sign: an aid in laparoscopic and robotic radical prostatectomy. Int Urol Nephrol. 2005;37(1):73-7.</p>
+<p>[2]Kalan S, Coughlin G, Palmer KJ, et al. Robot-assisted laparoscopic radical prostatectomy: an athermal anterior approach to the seminal vesicle dissection[J]. Journal of Robotic Surgery, 2008, 2(4): 223-226.</p>
+</main></body></html>

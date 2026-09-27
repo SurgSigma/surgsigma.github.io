@@ -1,0 +1,364 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>GraSP Triplet Recognition · SurgΣ-DB Annotation Guidelines</title><meta name="author" content="SurgΣ-DB"><style>
+@page {size: A4; margin: 16mm 17mm 18mm;
+ @bottom-left {content: "SurgΣ-DB · Task Guide"; font-family: Guide; font-size: 8pt; color:#657781;}
+ @bottom-right {content: counter(page); font-family: Guide; font-size: 8pt; color:#657781;}}
+body {font-family: Guide, "Noto Sans CJK SC", "Microsoft YaHei", sans-serif; font-size:10.5pt; line-height:1.48; color:#203b49;}
+.guide-page {break-before:page;}
+.guide-page:first-child {break-before:auto;}
+h1 {font-size:30pt; line-height:1.2; color:#173c4c; margin:8mm 0 4mm;}
+h2 {font-size:17pt; line-height:1.3; color:#137f7a; margin:3mm 0; padding-top:3mm; border-top:1.6pt solid #137f7a; break-after:avoid;}
+h3 {font-size:20pt; line-height:1.3; color:#173c4c; margin:4mm 0; break-after:avoid;}
+h3.kicker {font-size:13pt; font-weight:400; color:#657781; margin:0 0 7mm;}
+p {margin:2.8mm 0 3.2mm; orphans:2; widows:2;}
+strong {font-weight:700;}
+a {color:#247fac; text-decoration:none;}
+em {font-style:normal;}
+img {display:block; width:100%; height:auto; margin:3mm 0 2mm;}
+img.example-image {width:55%; margin:2mm 0;}
+.example,.construction {break-inside:avoid;}
+.caption {font-size:9pt; line-height:1.4; color:#657781; margin:2mm 0 3mm;}
+.references {font-size:10.5pt;}
+.references h2 {font-size:20pt; margin-bottom:6mm;}
+.overview {font-size:10.5pt;}
+.overview h2 {margin-top:7mm;}
+table {width:100%; border-collapse:collapse; table-layout:fixed; font-size:9.3pt; line-height:1.4; margin-top:4mm;}
+thead {display:table-header-group;}
+th,td {padding:2.5mm 2mm; text-align:left; border-bottom:0.5pt solid #d6e1e5; vertical-align:top;}
+th {color:#137f7a; background:#eef5f5;}
+th:first-child,td:first-child {width:9%;}
+th:nth-child(2),td:nth-child(2) {width:49%;}
+th:nth-child(3),td:nth-child(3) {width:42%;}
+tr {break-inside:avoid;}
+video {display:block; width:100%; max-height:520px; margin:16px 0; background:#12252e;}
+@media screen {
+ html {background:#e8eef1; scroll-behavior:smooth;}
+ body {max-width:900px; margin:24px auto; font-size:17px; line-height:1.65;}
+ .guide-page {background:white; padding:32px 44px; margin-bottom:24px; border-radius:8px;}
+ h1 {font-size:40px;} h2 {font-size:27px;} h3 {font-size:30px;}
+ table {font-size:15px;} .caption {font-size:14px;}
+}
+@media screen and (max-width:650px) {
+ body {margin:0; font-size:16px;} .guide-page {padding:22px 18px; border-radius:0;}
+ h1 {font-size:30px;} h3 {font-size:25px;} table {font-size:12px;}
+ img.example-image {width:100%;}
+}
+@media print {video {display:none;}}
+
+.triplet-nav {display:flex; flex-wrap:wrap; gap:8px 20px; padding:0; list-style:none;}
+.label-list {columns:2; padding-left:24px;}
+.label-list li {break-inside:avoid; padding:4px 0;}
+.triplet-gallery {display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; margin:20px 0;}
+.triplet-gallery figure {margin:0; min-width:0;}
+.triplet-gallery img {width:100%; margin:0;}
+.target-entry {margin:30px 0;}
+.target-entry h3 {font-size:23px;}
+.image-notes {padding:12px 18px; background:#eef5f5; border-left:3px solid #137f7a; margin:14px 0;}
+.triplet-scroll {overflow-x:auto;}
+table.triplet-table {table-layout:auto; font-size:15px; min-width:630px;}
+table.triplet-table th, table.triplet-table td {width:auto;}
+table.triplet-table th:first-child, table.triplet-table td:first-child {width:3rem;}
+table.triplet-table tbody tr:nth-child(even) {background:#f5f8f9;}
+@media screen and (max-width:650px) {.triplet-gallery {grid-template-columns:1fr;} .label-list {columns:1;}}
+</style></head><body><main class="guide-page task"><nav aria-label="Back to project"><a href="../../index.html#annotation-guidelines">← Back to released data</a></nav>
+<h3>9 · Triplet Recognition</h3>
+<p class="caption">GraSP · Robot-assisted radical prostatectomy (RARP)</p>
+<p>Each triplet consists of an instrument, an action, and a target. This guideline contains 6 instrument labels, 12 action labels, 18 target labels, and 156 triplets.</p>
+<ul class="triplet-nav"><li><a href="#instruments">Instruments</a></li><li><a href="#actions">Actions</a></li><li><a href="#targets">Targets</a></li><li><a href="#triplets">Triplets</a></li></ul>
+<h2 id="instruments">Instrument Label Space</h2>
+<div class="triplet-gallery">
+<figure><img src="media/grasp-triplet/image1.jpeg" alt="Bipolar Forceps" loading="lazy" width="1280" height="800"><figcaption class="caption">Bipolar Forceps</figcaption></figure>
+<figure><img src="media/grasp-triplet/image2.jpeg" alt="Prograsp Forceps" loading="lazy" width="1280" height="800"><figcaption class="caption">Prograsp Forceps</figcaption></figure>
+<figure><img src="media/grasp-triplet/image3.jpeg" alt="Large Needle Driver" loading="lazy" width="1280" height="800"><figcaption class="caption">Large Needle Driver</figcaption></figure>
+<figure><img src="media/grasp-triplet/image4.jpeg" alt="Suction Instrument" loading="lazy" width="1280" height="800"><figcaption class="caption">Suction Instrument</figcaption></figure>
+<figure><img src="media/grasp-triplet/image5.jpeg" alt="Clip Applier" loading="lazy" width="1280" height="800"><figcaption class="caption">Clip Applier</figcaption></figure>
+<figure><img src="media/grasp-triplet/image6.jpeg" alt="Monopolar Curved Scissors" loading="lazy" width="1280" height="800"><figcaption class="caption">Monopolar Curved Scissors</figcaption></figure>
+</div>
+<h2 id="actions">Action Label Space</h2><ol class="label-list"><li>Packaging</li><li>Tissue Retraction</li><li>Dissection</li><li>Aspiration</li><li>Coagulation</li><li>Needle Grasping</li><li>Needle Puncture</li><li>Suture Pulling</li><li>Knot-tying</li><li>Cutting</li><li>Clipping</li><li>Non-verb</li></ol>
+<h2 id="targets">Target Label Space</h2>
+<p>Note: Superior and inferior in this document refer to the surgical view, not the patient’s anatomical position.</p>
+<section class="target-entry" id="target-1"><h3>1. Subperitoneal adipose tissue</h3>
+<p>It may contain lymph nodes. Lymph node-bearing adipose tissue shall be dissected, placed into a retrieval bag, and removed from the body.</p>
+<div class="triplet-gallery">
+<figure><img src="media/grasp-triplet/image7.jpeg" alt="Subperitoneal adipose tissue — example 1" loading="lazy" width="452" height="281"></figure>
+<figure><img src="media/grasp-triplet/image8.jpeg" alt="Subperitoneal adipose tissue — example 2" loading="lazy" width="446" height="282"></figure>
+</div>
+<div class="image-notes"><p>This tissue is most abundant when clearing both sides of the prostate and performing bilateral pelvic lymph node dissection.</p></div>
+<div class="triplet-gallery">
+<figure><img src="media/grasp-triplet/image9.jpeg" alt="Subperitoneal adipose tissue — example 1" loading="lazy" width="448" height="268"></figure>
+<figure><img src="media/grasp-triplet/image10.jpeg" alt="Subperitoneal adipose tissue — example 2" loading="lazy" width="433" height="268"></figure>
+</div>
+</section>
+<section class="target-entry" id="target-2"><h3>2. Prostate</h3>
+<p>The prostate is located inferior to the bladder and anterior to the rectum. Its base is continuous with the bladder neck, while the apex is adjacent to the dorsal venous complex and urethra. Posteriorly, it is separated from the rectum by Denonvilliers&#x27; fascia. During surgery, the surrounding tissues and vascular pedicles are dissected before prostate removal.</p>
+<div class="triplet-gallery">
+<figure><img src="media/grasp-triplet/image11.jpeg" alt="Prostate — example 1" loading="lazy" width="459" height="288"><figcaption class="caption">Dissect excess adipose tissue anterior to the prostate.</figcaption></figure>
+<figure><img src="media/grasp-triplet/image12.jpeg" alt="Prostate — example 2" loading="lazy" width="463" height="288"><figcaption class="caption">Suture ligation is performed to reduce bleeding during dissection.</figcaption></figure>
+<figure><img src="media/grasp-triplet/image13.jpeg" alt="Prostate — example 3" loading="lazy" width="468" height="288"><figcaption class="caption">Perform suture ligation to reduce bleeding during dissection.</figcaption></figure>
+<figure><img src="media/grasp-triplet/image14.jpeg" alt="Prostate — example 4" loading="lazy" width="457" height="286"><figcaption class="caption">Dissect the space between the prostate and bladder to identify the vas deferens.</figcaption></figure>
+</div>
+</section>
+<section class="target-entry" id="target-3"><h3>3. Lateral Prostatic Ligament</h3>
+<p>The lateral prostatic ligament is a fibrous structure located along the lateral aspect of the prostate. It is closely associated with the prostatic vascular pedicle and neurovascular structures. During prostate dissection, it is carefully exposed and divided. Clipping or coagulation may be used to control bleeding.</p>
+<div class="triplet-gallery">
+<figure><img src="media/grasp-triplet/image15.jpeg" alt="Lateral Prostatic Ligament — example 1" loading="lazy" width="455" height="282"></figure>
+<figure><img src="media/grasp-triplet/image16.jpeg" alt="Lateral Prostatic Ligament — example 2" loading="lazy" width="459" height="285"></figure>
+</div>
+</section>
+<section class="target-entry" id="target-4"><h3>4. Seminal vesicle</h3>
+<p>Connected to the vas deferens, this glandular dilated structure serves as a landmark for identifying Denonvilliers’ fascia.</p>
+<div class="triplet-gallery">
+<figure><img src="media/grasp-triplet/image17.jpeg" alt="Seminal vesicle — example 1" loading="lazy" width="464" height="281"></figure>
+<figure><img src="media/grasp-triplet/image18.jpeg" alt="Seminal vesicle — example 2" loading="lazy" width="449" height="281"></figure>
+</div>
+<div class="image-notes"><p>The suction instrument is inserted in most cases to obtain a better surgical view.</p></div>
+</section>
+<section class="target-entry" id="target-5"><h3>5. Dorsal venous complex</h3>
+<p>Located at the prostatic apex, the apical tip of the triangular pyramidal prostate, this structure is enveloped by abundant connective tissue and blood vessels. The urethra lies posteriorly, and ligation is performed while avoiding the urethra.</p>
+<div class="image-notes"><p>Moderate suture ligation is performed to control bleeding during dissection.</p></div>
+<div class="triplet-gallery">
+<figure><img src="media/grasp-triplet/image19.jpeg" alt="Dorsal venous complex — example 1" loading="lazy" width="449" height="281"></figure>
+<figure><img src="media/grasp-triplet/image20.jpeg" alt="Dorsal venous complex — example 2" loading="lazy" width="449" height="278"></figure>
+</div>
+</section>
+<section class="target-entry" id="target-6"><h3>6. Vas deferens</h3>
+<p>It is continuous with the seminal vesicle, thicker than ordinary blood vessels, and pale in color.</p>
+<div class="triplet-gallery">
+<figure><img src="media/grasp-triplet/image21.jpeg" alt="Vas deferens — example 1" loading="lazy" width="442" height="277"></figure>
+<figure><img src="media/grasp-triplet/image22.jpeg" alt="Vas deferens — example 2" loading="lazy" width="450" height="277"></figure>
+</div>
+<div class="image-notes"><p>Gentle superior traction on this structure improves visualization for dissection of the Denonvilliers’ fascia and prevents rectal injury.</p></div>
+</section>
+<section class="target-entry" id="target-7"><h3>7. Peritoneum</h3>
+<p>It is a thin, membranous connective tissue covering the adipose tissue on the abdominal cavity surface.</p>
+<div class="triplet-gallery">
+<figure><img src="media/grasp-triplet/image23.jpeg" alt="Peritoneum — example 1" loading="lazy" width="502" height="282"><figcaption class="caption">All exposed surfaces are entirely covered by a layer of peritoneum.</figcaption></figure>
+<figure><img src="media/grasp-triplet/image24.jpeg" alt="Peritoneum — example 2" loading="lazy" width="462" height="284"><figcaption class="caption">Clearly visible at the beginning of the operation,it is tightly adherent to the adipose tissue.</figcaption></figure>
+</div>
+</section>
+<section class="target-entry" id="target-8"><h3>8. Obturator nerve</h3>
+<p>Located inferolaterally to the external iliac artery, the obturator nerve is white and clearly visible. It comes into view during dissection of the left and right sides of the prostate and is generally kept untouched.</p>
+<div class="triplet-gallery">
+<figure><img src="media/grasp-triplet/image25.jpeg" alt="Obturator nerve — example 1" loading="lazy" width="479" height="296"><figcaption class="caption">It can be visualized while dissecting the adipose tissue on the left side of the prostate.</figcaption></figure>
+</div>
+</section>
+<section class="target-entry" id="target-9"><h3>9. Bladder neck</h3>
+<p>The bladder neck is located at the inferior outlet of the bladder and is continuous with the proximal urethra. It is separated from the prostate during dissection. After prostate removal, it is preserved or reconstructed as needed. It is then anastomosed to the urethral stump.</p>
+<div class="triplet-gallery">
+<figure><img src="media/grasp-triplet/image26.jpeg" alt="Bladder neck — example 1" loading="lazy" width="479" height="296"></figure>
+<figure><img src="media/grasp-triplet/image27.jpeg" alt="Bladder neck — example 2" loading="lazy" width="478" height="296"></figure>
+</div>
+<div class="image-notes"><p>It is lifted upward,and the bladder neck is then narrowed with suture to match the urethral caliber.</p></div>
+</section>
+<section class="target-entry" id="target-10"><h3>10. Urethra</h3>
+<p>The urethra extends from the bladder neck and passes through the prostate. Near the prostatic apex, it lies posterior to the dorsal venous complex. The urethral catheter helps identify it during dissection. After prostate removal, the urethral stump is connected to the bladder neck.</p>
+<div class="triplet-gallery">
+<figure><img src="media/grasp-triplet/image28.jpeg" alt="Urethra — example 1" loading="lazy" width="478" height="296"><figcaption class="caption">The white structure is the catheter,and the surrounding tissue is the urethra.</figcaption></figure>
+<figure><img src="media/grasp-triplet/image29.jpeg" alt="Urethra — example 2" loading="lazy" width="478" height="296"><figcaption class="caption">The opening is small,but the catheter is clearly visible.</figcaption></figure>
+</div>
+</section>
+<section class="target-entry" id="target-11"><h3>11. Vesicoprostatic space</h3>
+<p>It lies between the bladder and the prostate. Few clips are used at this stage, prior to the elevation of the vas deferens and seminal vesicles.</p>
+<div class="triplet-gallery">
+<figure><img src="media/grasp-triplet/image30.jpeg" alt="Vesicoprostatic space — example 1" loading="lazy" width="490" height="273"><figcaption class="caption">Initial dissection makes this space difficult to locate. The catheter becomes visible as dissection proceeds deeper.</figcaption></figure>
+<figure><img src="media/grasp-triplet/image31.jpeg" alt="Vesicoprostatic space — example 2" loading="lazy" width="498" height="271"><figcaption class="caption">This is a partially dissected space,with the bladder neck and urethra clearly visible.</figcaption></figure>
+</div>
+</section>
+<section class="target-entry" id="target-12"><h3>12. Rectum</h3>
+<p>The rectum is located posterior to the prostate and is separated from the prostate by Denonvilliers&#x27; fascia. During prostate dissection, this fascial plane is carefully developed to avoid rectal injury.</p>
+<div class="triplet-gallery">
+<figure><img src="media/grasp-triplet/image32.jpeg" alt="Rectum — example 1" loading="lazy" width="478" height="296"><figcaption class="caption">The suction instrument is inserted most of the time to improve surgical visualization.</figcaption></figure>
+<figure><img src="media/grasp-triplet/image33.jpeg" alt="Rectum — example 2" loading="lazy" width="449" height="279"><figcaption class="caption">A suction instrument is inserted in most cases to obtain a better surgical view.</figcaption></figure>
+</div>
+</section>
+<section class="target-entry" id="target-13"><h3>13. Denonvilliers’ fascia</h3>
+<p>It lies between the prostate and the rectum and appears whitish. Prostatic lateral ligamentts are present on both sides, and it only becomes exposed after the vas deferens and seminal vesicles are mobilized.</p>
+<div class="triplet-gallery">
+<figure><img src="media/grasp-triplet/image34.jpeg" alt="Denonvilliers’ fascia — example 1" loading="lazy" width="483" height="266"></figure>
+<figure><img src="media/grasp-triplet/image35.jpeg" alt="Denonvilliers’ fascia — example 2" loading="lazy" width="474" height="269"></figure>
+</div>
+</section>
+<section class="target-entry" id="target-14"><h3>14. Below the pubic symphysis</h3>
+<p>On the anterior side of the dorsal venous complex, a suture is passed through to improve postoperative urinary continence.</p>
+<div class="triplet-gallery">
+<figure><img src="media/grasp-triplet/image36.jpeg" alt="Below the pubic symphysis — example 1" loading="lazy" width="487" height="291"></figure>
+</div>
+</section>
+<section class="target-entry" id="target-15"><h3>15. External iliac vessels</h3>
+<p>The collective term for the external iliac artery and external iliac vein is the external iliac vessels. Their surface is covered with abundant adipose tissue, within which diffuse lymphoid tissue is present.</p>
+<div class="triplet-gallery">
+<figure><img src="media/grasp-triplet/image37.jpeg" alt="External iliac vessels — example 1" loading="lazy" width="478" height="296"></figure>
+</div>
+</section>
+<section class="target-entry" id="target-16"><h3>16. Suture</h3>
+<p>After ligation of the dorsal venous complex, excess suture is cut and removed.</p>
+<div class="triplet-gallery">
+<figure><img src="media/grasp-triplet/image38.jpeg" alt="Suture — example 1" loading="lazy" width="454" height="286"></figure>
+<figure><img src="media/grasp-triplet/image39.jpeg" alt="Suture — example 2" loading="lazy" width="458" height="288"></figure>
+</div>
+<div class="image-notes"><p>Sutures are used in only a limited number of steps throughout the procedure,and most suture manipulations are confined to the same anatomical region.</p></div>
+</section>
+<section class="target-entry" id="target-17"><h3>17. Urethral Catheter</h3>
+<p>The urethral catheter serves as a prominent landmark for identifying the urethra in the final stage of dissection.</p>
+<div class="triplet-gallery">
+<figure><img src="media/grasp-triplet/image40.jpeg" alt="Urethral Catheter — example 1" loading="lazy" width="472" height="291"></figure>
+</div>
+</section>
+<section class="target-entry" id="target-18"><h3>18. Non-target</h3></section>
+<h2 id="triplets">Triplets (156 entries)</h2><div class="triplet-scroll" role="region" aria-label="Triplet label list" tabindex="0"><table class="triplet-table"><thead><tr><th scope="col">No.</th><th scope="col">Instrument</th><th scope="col">Action</th><th scope="col">Target</th></tr></thead><tbody>
+<tr><td>1</td><td>Bipolar Forceps</td><td>Coagulation</td><td>Bladder neck</td></tr>
+<tr><td>2</td><td>Bipolar Forceps</td><td>Coagulation</td><td>Denonvilliers’ fascia</td></tr>
+<tr><td>3</td><td>Bipolar Forceps</td><td>Coagulation</td><td>Dorsal venous complex</td></tr>
+<tr><td>4</td><td>Bipolar Forceps</td><td>Coagulation</td><td>Lateral prostatic ligament</td></tr>
+<tr><td>5</td><td>Bipolar Forceps</td><td>Coagulation</td><td>Peritoneum</td></tr>
+<tr><td>6</td><td>Bipolar Forceps</td><td>Coagulation</td><td>Prostate</td></tr>
+<tr><td>7</td><td>Bipolar Forceps</td><td>Coagulation</td><td>Seminal vesicle</td></tr>
+<tr><td>8</td><td>Bipolar Forceps</td><td>Coagulation</td><td>Subperitoneal adipose tissue</td></tr>
+<tr><td>9</td><td>Bipolar Forceps</td><td>Coagulation</td><td>Vas deferens</td></tr>
+<tr><td>10</td><td>Bipolar Forceps</td><td>Coagulation</td><td>Vesicoprostatic space</td></tr>
+<tr><td>11</td><td>Bipolar Forceps</td><td>Dissection</td><td>Denonvilliers’ fascia</td></tr>
+<tr><td>12</td><td>Bipolar Forceps</td><td>Dissection</td><td>Lateral prostatic ligament</td></tr>
+<tr><td>13</td><td>Bipolar Forceps</td><td>Dissection</td><td>Peritoneum</td></tr>
+<tr><td>14</td><td>Bipolar Forceps</td><td>Dissection</td><td>Prostate</td></tr>
+<tr><td>15</td><td>Bipolar Forceps</td><td>Dissection</td><td>Seminal vesicle</td></tr>
+<tr><td>16</td><td>Bipolar Forceps</td><td>Dissection</td><td>Subperitoneal adipose tissue</td></tr>
+<tr><td>17</td><td>Bipolar Forceps</td><td>Dissection</td><td>Vesicoprostatic space</td></tr>
+<tr><td>18</td><td>Bipolar Forceps</td><td>Non-verb</td><td>Non-target</td></tr>
+<tr><td>19</td><td>Bipolar Forceps</td><td>Non-verb</td><td>Obturator nerve</td></tr>
+<tr><td>20</td><td>Bipolar Forceps</td><td>Packaging</td><td>Subperitoneal adipose tissue</td></tr>
+<tr><td>21</td><td>Bipolar Forceps</td><td>Suture Pulling</td><td>Prostate</td></tr>
+<tr><td>22</td><td>Bipolar Forceps</td><td>Suture Pulling</td><td>Suture</td></tr>
+<tr><td>23</td><td>Bipolar Forceps</td><td>Tissue Retraction</td><td>Bladder neck</td></tr>
+<tr><td>24</td><td>Bipolar Forceps</td><td>Tissue Retraction</td><td>Denonvilliers’ fascia</td></tr>
+<tr><td>25</td><td>Bipolar Forceps</td><td>Tissue Retraction</td><td>Dorsal venous complex</td></tr>
+<tr><td>26</td><td>Bipolar Forceps</td><td>Tissue Retraction</td><td>External iliac vessels</td></tr>
+<tr><td>27</td><td>Bipolar Forceps</td><td>Tissue Retraction</td><td>Lateral prostatic ligament</td></tr>
+<tr><td>28</td><td>Bipolar Forceps</td><td>Tissue Retraction</td><td>Non-target</td></tr>
+<tr><td>29</td><td>Bipolar Forceps</td><td>Tissue Retraction</td><td>Obturator nerve</td></tr>
+<tr><td>30</td><td>Bipolar Forceps</td><td>Tissue Retraction</td><td>Peritoneum</td></tr>
+<tr><td>31</td><td>Bipolar Forceps</td><td>Tissue Retraction</td><td>Prostate</td></tr>
+<tr><td>32</td><td>Bipolar Forceps</td><td>Tissue Retraction</td><td>Rectum</td></tr>
+<tr><td>33</td><td>Bipolar Forceps</td><td>Tissue Retraction</td><td>Seminal vesicle</td></tr>
+<tr><td>34</td><td>Bipolar Forceps</td><td>Tissue Retraction</td><td>Subperitoneal adipose tissue</td></tr>
+<tr><td>35</td><td>Bipolar Forceps</td><td>Tissue Retraction</td><td>Suture</td></tr>
+<tr><td>36</td><td>Bipolar Forceps</td><td>Tissue Retraction</td><td>Urethra</td></tr>
+<tr><td>37</td><td>Bipolar Forceps</td><td>Tissue Retraction</td><td>Vas deferens</td></tr>
+<tr><td>38</td><td>Bipolar Forceps</td><td>Tissue Retraction</td><td>Vesicoprostatic space</td></tr>
+<tr><td>39</td><td>Clip Applier</td><td>Clipping</td><td>Lateral prostatic ligament</td></tr>
+<tr><td>40</td><td>Clip Applier</td><td>Clipping</td><td>Non-target</td></tr>
+<tr><td>41</td><td>Clip Applier</td><td>Clipping</td><td>Prostate</td></tr>
+<tr><td>42</td><td>Clip Applier</td><td>Clipping</td><td>Subperitoneal adipose tissue</td></tr>
+<tr><td>43</td><td>Clip Applier</td><td>Clipping</td><td>Suture</td></tr>
+<tr><td>44</td><td>Clip Applier</td><td>Clipping</td><td>Vas deferens</td></tr>
+<tr><td>45</td><td>Clip Applier</td><td>Non-verb</td><td>Non-target</td></tr>
+<tr><td>46</td><td>Large Needle Driver</td><td>Needle Grasping</td><td>Bladder neck</td></tr>
+<tr><td>47</td><td>Large Needle Driver</td><td>Needle Grasping</td><td>Subperitoneal adipose tissue</td></tr>
+<tr><td>48</td><td>Large Needle Driver</td><td>Needle Puncture</td><td>Bladder neck</td></tr>
+<tr><td>49</td><td>Large Needle Driver</td><td>Dissection</td><td>Denonvilliers’ fascia</td></tr>
+<tr><td>50</td><td>Large Needle Driver</td><td>Knot-tying</td><td>Bladder neck</td></tr>
+<tr><td>51</td><td>Large Needle Driver</td><td>Knot-tying</td><td>Dorsal venous complex</td></tr>
+<tr><td>52</td><td>Large Needle Driver</td><td>Needle Grasping</td><td>Below the pubic symphysis</td></tr>
+<tr><td>53</td><td>Large Needle Driver</td><td>Needle Grasping</td><td>Non-target</td></tr>
+<tr><td>54</td><td>Large Needle Driver</td><td>Needle Puncture</td><td>Below the pubic symphysis</td></tr>
+<tr><td>55</td><td>Large Needle Driver</td><td>Needle Puncture</td><td>Dorsal venous complex</td></tr>
+<tr><td>56</td><td>Large Needle Driver</td><td>Needle Puncture</td><td>External iliac vessels</td></tr>
+<tr><td>57</td><td>Large Needle Driver</td><td>Needle Puncture</td><td>Non-target</td></tr>
+<tr><td>58</td><td>Large Needle Driver</td><td>Needle Puncture</td><td>Urethra</td></tr>
+<tr><td>59</td><td>Large Needle Driver</td><td>Non-verb</td><td>Non-target</td></tr>
+<tr><td>60</td><td>Large Needle Driver</td><td>Suture Pulling</td><td>Prostate</td></tr>
+<tr><td>61</td><td>Large Needle Driver</td><td>Suture Pulling</td><td>Suture</td></tr>
+<tr><td>62</td><td>Large Needle Driver</td><td>Tissue Retraction</td><td>Bladder neck</td></tr>
+<tr><td>63</td><td>Large Needle Driver</td><td>Tissue Retraction</td><td>Dorsal venous complex</td></tr>
+<tr><td>64</td><td>Large Needle Driver</td><td>Tissue Retraction</td><td>External iliac vessels</td></tr>
+<tr><td>65</td><td>Large Needle Driver</td><td>Tissue Retraction</td><td>Lateral prostatic ligament</td></tr>
+<tr><td>66</td><td>Large Needle Driver</td><td>Tissue Retraction</td><td>Prostate</td></tr>
+<tr><td>67</td><td>Large Needle Driver</td><td>Tissue Retraction</td><td>Rectum</td></tr>
+<tr><td>68</td><td>Large Needle Driver</td><td>Tissue Retraction</td><td>Subperitoneal adipose tissue</td></tr>
+<tr><td>69</td><td>Large Needle Driver</td><td>Tissue Retraction</td><td>Suture</td></tr>
+<tr><td>70</td><td>Large Needle Driver</td><td>Tissue Retraction</td><td>Urethra</td></tr>
+<tr><td>71</td><td>Monopolar Curved Scissors</td><td>Dissection</td><td>Peritoneum</td></tr>
+<tr><td>72</td><td>Monopolar Curved Scissors</td><td>Coagulation</td><td>Denonvilliers’ fascia</td></tr>
+<tr><td>73</td><td>Monopolar Curved Scissors</td><td>Coagulation</td><td>Lateral prostatic ligament</td></tr>
+<tr><td>74</td><td>Monopolar Curved Scissors</td><td>Coagulation</td><td>Seminal vesicle</td></tr>
+<tr><td>75</td><td>Monopolar Curved Scissors</td><td>Coagulation</td><td>Vesicoprostatic space</td></tr>
+<tr><td>76</td><td>Monopolar Curved Scissors</td><td>Cutting</td><td>Lateral prostatic ligament</td></tr>
+<tr><td>77</td><td>Monopolar Curved Scissors</td><td>Cutting</td><td>Suture</td></tr>
+<tr><td>78</td><td>Monopolar Curved Scissors</td><td>Cutting</td><td>Vesicoprostatic space</td></tr>
+<tr><td>79</td><td>Monopolar Curved Scissors</td><td>Dissection</td><td>Bladder neck</td></tr>
+<tr><td>80</td><td>Monopolar Curved Scissors</td><td>Dissection</td><td>Denonvilliers’ fascia</td></tr>
+<tr><td>81</td><td>Monopolar Curved Scissors</td><td>Dissection</td><td>Dorsal venous complex</td></tr>
+<tr><td>82</td><td>Monopolar Curved Scissors</td><td>Dissection</td><td>External iliac vessels</td></tr>
+<tr><td>83</td><td>Monopolar Curved Scissors</td><td>Dissection</td><td>Lateral prostatic ligament</td></tr>
+<tr><td>84</td><td>Monopolar Curved Scissors</td><td>Dissection</td><td>Prostate</td></tr>
+<tr><td>85</td><td>Monopolar Curved Scissors</td><td>Dissection</td><td>Seminal vesicle</td></tr>
+<tr><td>86</td><td>Monopolar Curved Scissors</td><td>Dissection</td><td>Subperitoneal adipose tissue</td></tr>
+<tr><td>87</td><td>Monopolar Curved Scissors</td><td>Dissection</td><td>Urethra</td></tr>
+<tr><td>88</td><td>Monopolar Curved Scissors</td><td>Dissection</td><td>Vas deferens</td></tr>
+<tr><td>89</td><td>Monopolar Curved Scissors</td><td>Dissection</td><td>Vesicoprostatic space</td></tr>
+<tr><td>90</td><td>Monopolar Curved Scissors</td><td>Needle Puncture</td><td>Non-target</td></tr>
+<tr><td>91</td><td>Monopolar Curved Scissors</td><td>Non-verb</td><td>Non-target</td></tr>
+<tr><td>92</td><td>Monopolar Curved Scissors</td><td>Non-verb</td><td>Obturator nerve</td></tr>
+<tr><td>93</td><td>Monopolar Curved Scissors</td><td>Non-verb</td><td>Prostate</td></tr>
+<tr><td>94</td><td>Monopolar Curved Scissors</td><td>Non-verb</td><td>Seminal vesicle</td></tr>
+<tr><td>95</td><td>Monopolar Curved Scissors</td><td>Packaging</td><td>Prostate</td></tr>
+<tr><td>96</td><td>Monopolar Curved Scissors</td><td>Packaging</td><td>Subperitoneal adipose tissue</td></tr>
+<tr><td>97</td><td>Monopolar Curved Scissors</td><td>Suture Pulling</td><td>Subperitoneal adipose tissue</td></tr>
+<tr><td>98</td><td>Monopolar Curved Scissors</td><td>Tissue Retraction</td><td>Bladder neck</td></tr>
+<tr><td>99</td><td>Monopolar Curved Scissors</td><td>Tissue Retraction</td><td>Denonvilliers’ fascia</td></tr>
+<tr><td>100</td><td>Monopolar Curved Scissors</td><td>Tissue Retraction</td><td>Dorsal venous complex</td></tr>
+<tr><td>101</td><td>Monopolar Curved Scissors</td><td>Tissue Retraction</td><td>External iliac vessels</td></tr>
+<tr><td>102</td><td>Monopolar Curved Scissors</td><td>Tissue Retraction</td><td>Lateral prostatic ligament</td></tr>
+<tr><td>103</td><td>Monopolar Curved Scissors</td><td>Tissue Retraction</td><td>Obturator nerve</td></tr>
+<tr><td>104</td><td>Monopolar Curved Scissors</td><td>Tissue Retraction</td><td>Peritoneum</td></tr>
+<tr><td>105</td><td>Monopolar Curved Scissors</td><td>Tissue Retraction</td><td>Prostate</td></tr>
+<tr><td>106</td><td>Monopolar Curved Scissors</td><td>Tissue Retraction</td><td>Rectum</td></tr>
+<tr><td>107</td><td>Monopolar Curved Scissors</td><td>Tissue Retraction</td><td>Seminal vesicle</td></tr>
+<tr><td>108</td><td>Monopolar Curved Scissors</td><td>Tissue Retraction</td><td>Subperitoneal adipose tissue</td></tr>
+<tr><td>109</td><td>Monopolar Curved Scissors</td><td>Tissue Retraction</td><td>Urethra</td></tr>
+<tr><td>110</td><td>Monopolar Curved Scissors</td><td>Tissue Retraction</td><td>Vas deferens</td></tr>
+<tr><td>111</td><td>Monopolar Curved Scissors</td><td>Tissue Retraction</td><td>Vesicoprostatic space</td></tr>
+<tr><td>112</td><td>Prograsp Forceps</td><td>Dissection</td><td>Prostate</td></tr>
+<tr><td>113</td><td>Prograsp Forceps</td><td>Needle Puncture</td><td>Dorsal venous complex</td></tr>
+<tr><td>114</td><td>Prograsp Forceps</td><td>Needle Puncture</td><td>Urethra</td></tr>
+<tr><td>115</td><td>Prograsp Forceps</td><td>Non-verb</td><td>Non-target</td></tr>
+<tr><td>116</td><td>Prograsp Forceps</td><td>Packaging</td><td>Prostate</td></tr>
+<tr><td>117</td><td>Prograsp Forceps</td><td>Packaging</td><td>Subperitoneal adipose tissue</td></tr>
+<tr><td>118</td><td>Prograsp Forceps</td><td>Suture Pulling</td><td>Suture</td></tr>
+<tr><td>119</td><td>Prograsp Forceps</td><td>Tissue Retraction</td><td>Below the pubic symphysis</td></tr>
+<tr><td>120</td><td>Prograsp Forceps</td><td>Tissue Retraction</td><td>Bladder neck</td></tr>
+<tr><td>121</td><td>Prograsp Forceps</td><td>Tissue Retraction</td><td>Denonvilliers’ fascia</td></tr>
+<tr><td>122</td><td>Prograsp Forceps</td><td>Tissue Retraction</td><td>External iliac vessels</td></tr>
+<tr><td>123</td><td>Prograsp Forceps</td><td>Tissue Retraction</td><td>Lateral prostatic ligament</td></tr>
+<tr><td>124</td><td>Prograsp Forceps</td><td>Tissue Retraction</td><td>Peritoneum</td></tr>
+<tr><td>125</td><td>Prograsp Forceps</td><td>Tissue Retraction</td><td>Prostate</td></tr>
+<tr><td>126</td><td>Prograsp Forceps</td><td>Tissue Retraction</td><td>Seminal vesicle</td></tr>
+<tr><td>127</td><td>Prograsp Forceps</td><td>Tissue Retraction</td><td>Subperitoneal adipose tissue</td></tr>
+<tr><td>128</td><td>Prograsp Forceps</td><td>Tissue Retraction</td><td>Urethral Catheter</td></tr>
+<tr><td>129</td><td>Prograsp Forceps</td><td>Tissue Retraction</td><td>Vas deferens</td></tr>
+<tr><td>130</td><td>Prograsp Forceps</td><td>Tissue Retraction</td><td>Vesicoprostatic space</td></tr>
+<tr><td>131</td><td>Suction Instrument</td><td>Aspiration</td><td>Bladder neck</td></tr>
+<tr><td>132</td><td>Suction Instrument</td><td>Aspiration</td><td>Denonvilliers’ fascia</td></tr>
+<tr><td>133</td><td>Suction Instrument</td><td>Aspiration</td><td>External iliac vessels</td></tr>
+<tr><td>134</td><td>Suction Instrument</td><td>Aspiration</td><td>Lateral prostatic ligament</td></tr>
+<tr><td>135</td><td>Suction Instrument</td><td>Aspiration</td><td>Non-target</td></tr>
+<tr><td>136</td><td>Suction Instrument</td><td>Aspiration</td><td>Peritoneum</td></tr>
+<tr><td>137</td><td>Suction Instrument</td><td>Aspiration</td><td>Prostate</td></tr>
+<tr><td>138</td><td>Suction Instrument</td><td>Aspiration</td><td>Rectum</td></tr>
+<tr><td>139</td><td>Suction Instrument</td><td>Aspiration</td><td>Subperitoneal adipose tissue</td></tr>
+<tr><td>140</td><td>Suction Instrument</td><td>Aspiration</td><td>Urethra</td></tr>
+<tr><td>141</td><td>Suction Instrument</td><td>Aspiration</td><td>Vas deferens</td></tr>
+<tr><td>142</td><td>Suction Instrument</td><td>Aspiration</td><td>Vesicoprostatic space</td></tr>
+<tr><td>143</td><td>Suction Instrument</td><td>Non-verb</td><td>Non-target</td></tr>
+<tr><td>144</td><td>Suction Instrument</td><td>Non-verb</td><td>Subperitoneal adipose tissue</td></tr>
+<tr><td>145</td><td>Suction Instrument</td><td>Tissue Retraction</td><td>Bladder neck</td></tr>
+<tr><td>146</td><td>Suction Instrument</td><td>Tissue Retraction</td><td>Denonvilliers’ fascia</td></tr>
+<tr><td>147</td><td>Suction Instrument</td><td>Tissue Retraction</td><td>Dorsal venous complex</td></tr>
+<tr><td>148</td><td>Suction Instrument</td><td>Tissue Retraction</td><td>External iliac vessels</td></tr>
+<tr><td>149</td><td>Suction Instrument</td><td>Tissue Retraction</td><td>Lateral prostatic ligament</td></tr>
+<tr><td>150</td><td>Suction Instrument</td><td>Tissue Retraction</td><td>Obturator nerve</td></tr>
+<tr><td>151</td><td>Suction Instrument</td><td>Tissue Retraction</td><td>Peritoneum</td></tr>
+<tr><td>152</td><td>Suction Instrument</td><td>Tissue Retraction</td><td>Prostate</td></tr>
+<tr><td>153</td><td>Suction Instrument</td><td>Tissue Retraction</td><td>Rectum</td></tr>
+<tr><td>154</td><td>Suction Instrument</td><td>Tissue Retraction</td><td>Seminal vesicle</td></tr>
+<tr><td>155</td><td>Suction Instrument</td><td>Tissue Retraction</td><td>Subperitoneal adipose tissue</td></tr>
+<tr><td>156</td><td>Suction Instrument</td><td>Tissue Retraction</td><td>Vas deferens</td></tr>
+</tbody></table></div></main></body></html>
